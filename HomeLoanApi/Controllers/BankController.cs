@@ -23,7 +23,6 @@ namespace HomeLoanApi.Controllers
                            Ifsc = bank.Ifsc,
                            Cibil = bank.Cibil,
                            CId = bank.CId
-
                        };
             return Ok(data);
         }
