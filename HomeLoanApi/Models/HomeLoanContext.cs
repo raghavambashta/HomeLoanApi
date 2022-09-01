@@ -196,19 +196,33 @@ namespace HomeLoanApi.Models
                     .ValueGeneratedNever()
                     .HasColumnName("D_Id");
 
-                entity.Property(e => e.Aadhaar).IsRequired();
+                entity.Property(e => e.Aadhaar)
+                    .IsRequired()
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Agreement).IsRequired();
+                entity.Property(e => e.Agreement)
+                    .IsRequired()
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CId).HasColumnName("C_Id");
 
-                entity.Property(e => e.Loa).IsRequired();
+                entity.Property(e => e.Loa)
+                    .IsRequired()
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Noc).IsRequired();
+                entity.Property(e => e.Noc)
+                    .IsRequired()
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Pan).IsRequired();
+                entity.Property(e => e.Pan)
+                    .IsRequired()
+                    .IsUnicode(false);
 
-                entity.Property(e => e.SalarySlip).IsRequired();
+                entity.Property(e => e.SalarySlip)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Voter).IsUnicode(false);
 
                 entity.HasOne(d => d.CIdNavigation)
                     .WithMany(p => p.Docs)

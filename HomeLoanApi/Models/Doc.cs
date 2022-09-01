@@ -8,13 +8,13 @@ namespace HomeLoanApi.Models
     public partial class Doc
     {
         public int DId { get; set; }
-        public byte[] Aadhaar { get; set; }
-        public byte[] Pan { get; set; }
-        public byte[] Voter { get; set; }
-        public byte[] SalarySlip { get; set; }
-        public byte[] Loa { get; set; }
-        public byte[] Noc { get; set; }
-        public byte[] Agreement { get; set; }
+        public string Aadhaar { get; set; }
+        public string Pan { get; set; }
+        public string Voter { get; set; }
+        public string SalarySlip { get; set; }
+        public string Loa { get; set; }
+        public string Noc { get; set; }
+        public string Agreement { get; set; }
         public int CId { get; set; }
 
         public virtual Cred CIdNavigation { get; set; }

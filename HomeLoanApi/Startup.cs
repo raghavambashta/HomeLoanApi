@@ -28,6 +28,7 @@ namespace HomeLoanApi
         {
             services.AddDbContext<HomeLoanContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("mycon")));
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +40,7 @@ namespace HomeLoanApi
             }
 
             app.UseRouting();
+            app.UseCors(options => { options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); });
 
             app.UseAuthorization();
 

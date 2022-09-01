@@ -30,6 +30,35 @@ namespace HomeLoanApi.Controllers
                        };
             return Ok(data);
         }
+
+        [HttpGet]
+        [Route("ListApplicant/{id}")]
+        public IActionResult GetDept(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Id cannot be null");
+            }
+            //var data = (from dept in db.Depts.Where(d => d.Id == id).Select(d => new {id = d.Id, Name = d.Name, Location = d.Location}}.FirstorDefault();
+            var data = (from applicant in db.Applicants where applicant.UId == id select new { 
+                UserId = applicant.UId, 
+                FirstName = applicant.FirstName,
+                MiddleName = applicant.MiddleName,
+                LastName = applicant.LastName,
+                Dob = applicant.Dob,
+                Gender = applicant.Gender,
+                Nationality = applicant.Nationality,
+                AadharNum = applicant.AadharNum,
+                PanNum = applicant.PanNum,
+                CId = applicant.CId
+ 
+            }).FirstOrDefault();
+            if (data == null)
+            {
+                return NotFound($"Applicant {id} not present");
+            }
+            return Ok(data);
+        }
         [HttpPost]
         [Route("AddApplicant")]
         public IActionResult PostApplicant(Applicant applicant)

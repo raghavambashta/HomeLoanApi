@@ -41,7 +41,6 @@ namespace HomeLoanApi.Controllers
             {
                 try
                 {
-                    //var json = new JavaScriptSerializer().Serialize(obj);
                     db.Docs.Add(doc);
                     db.SaveChanges();
                 }
